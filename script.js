@@ -1,11 +1,10 @@
-// Wait for the DOM to load before executing scripts
 document.addEventListener("DOMContentLoaded", () => {
     /* Smooth Scrolling for Navigation Links */
     const navLinks = document.querySelectorAll("nav a");
     navLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
+        link.addEventListener("click", event => {
             event.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
+            const targetId = link.getAttribute("href").substring(1);
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
                 targetSection.scrollIntoView({
@@ -18,19 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Rotating Testimonials */
     const testimonials = document.querySelectorAll(".testimonial");
-    let currentTestimonialIndex = 0;
+    let currentIndex = 0;
 
     function rotateTestimonials() {
         testimonials.forEach((testimonial, index) => {
             testimonial.classList.remove("active");
         });
-        testimonials[currentTestimonialIndex].classList.add("active");
-        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+
+        // Display two testimonials at a time
+        testimonials[currentIndex].classList.add("active");
+        testimonials[(currentIndex + 1) % testimonials.length].classList.add("active");
+
+        currentIndex = (currentIndex + 1) % testimonials.length;
     }
 
     // Start rotating testimonials every 5 seconds
     if (testimonials.length > 0) {
-        testimonials[currentTestimonialIndex].classList.add("active");
+        rotateTestimonials(); // Show the first testimonials immediately
         setInterval(rotateTestimonials, 5000);
     }
 
@@ -45,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("scroll", () => {
         if (window.scrollY > 300) {
-            scrollToTopButton.style.display = "block";
+            scrollToTopButton.style.display = "flex";
         } else {
             scrollToTopButton.style.display = "none";
         }
