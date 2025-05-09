@@ -148,3 +148,35 @@ footer p {
     margin: 0;
     font-size: 0.9rem;
 }
+
+/* === Testimonials Section Styling === */
+.testimonials-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 40px 20px;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.testimonial {
+  display: none;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial.active {
+  display: block;
+  opacity: 1;
+}
+
+.testimonial h4 {
+  margin-top: 10px;
+  font-weight: normal;
+  font-style: italic;
+  color: #ccc;
+}
+
