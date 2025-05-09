@@ -1,182 +1,114 @@
-/* General Styles */
-body {
-    font-family: 'Poppins', sans-serif;
+/* Base Styling */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
     color: #333;
+    overflow-x: hidden;
 }
 
-/* Header */
+/* Header Styling */
 header {
     background: #1e272e;
-    color: #f5d142; /* Gold accent */
+    color: #f5d142; /* Premium gold accent */
     text-align: center;
     padding: 1.5rem 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header img {
-    max-width: 150px;
+    max-width: 120px;
     height: auto;
     margin-bottom: 1rem;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: bold;
+header img:hover {
+    transform: scale(1.1);
 }
 
-header p {
-    font-size: 1.2rem;
-    margin: 0.5rem 0 0;
-}
-
-/* Navigation Styles */
+/* Navigation Styling */
 nav {
     display: flex;
     justify-content: center;
     background: #333;
     padding: 0.75rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
     color: #f5d142;
     text-decoration: none;
-    margin: 0 1.5rem;
+    margin: 0 1rem;
     font-size: 1.1rem;
     font-weight: bold;
     text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
 }
 
 nav a:hover {
-    text-decoration: underline;
-}
-
-/* About Section */
-section#about {
-    padding: 3rem;
-    background: #fff;
-    margin: 1rem auto;
-    border-radius: 10px;
-    max-width: 1000px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-section#about h2 {
-    font-size: 2.5rem;
-    color: #1e272e;
-    text-align: center;
-}
-
-section#about p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-/* Instagram Gallery Section */
-section#gallery {
-    padding: 3rem;
-    background: #f9f9f9;
-    margin: 1rem auto;
-    border-radius: 10px;
-    max-width: 1000px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-section#gallery h2 {
-    font-size: 2.5rem;
-    color: #1e272e;
-    text-align: center;
-}
-
-.gallery-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.gallery-container iframe {
-    width: 100%;
-    height: 600px;
-    border: none;
-    border-radius: 10px;
-}
-
-/* Contact Section */
-section#contact {
-    padding: 3rem;
-    background: #fff;
-    margin: 1rem auto;
-    border-radius: 10px;
-    max-width: 1000px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-section#contact h2 {
-    font-size: 2.5rem;
-    color: #1e272e;
-    text-align: center;
-}
-
-section#contact p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1rem;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.social-icons a {
     color: #fff;
-    background: #4CAF50;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out;
 }
 
-.social-icons a:hover {
-    background: #f5d142;
+/* Section Styling */
+section {
+    padding: 3rem;
+    margin: 1rem auto;
+    border-radius: 10px;
+    max-width: 1000px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2.5rem;
     color: #1e272e;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
 /* Testimonials Section */
 .testimonials-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 1000px;
+    position: relative;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 3rem;
-    background: #1e272e;
-    color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
 .testimonial {
-    flex: 1 1 calc(33.333% - 2rem);
-    background: linear-gradient(to bottom, #4c6ef5, #2c3e50);
-    color: #fff;
-    padding: 1.5rem;
-    border-radius: 10px;
+    display: none;
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #fff;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #4c6ef5, #2c3e50);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s ease-in-out;
 }
 
-.testimonial:hover {
-    transform: scale(1.05);
+.testimonial.active {
+    display: block;
+    opacity: 1;
 }
 
 .testimonial h4 {
@@ -185,16 +117,87 @@ section#contact p {
     color: #f5d142;
 }
 
-/* Footer */
+/* Blog Section */
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.blog-post {
+    flex: 1 1 calc(33.333% - 2rem);
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.blog-post:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post img {
+    width: 100%;
+    height: auto;
+}
+
+.blog-post-content {
+    padding: 1rem;
+}
+
+.blog-post h3 {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+    color: #1e272e;
+}
+
+.blog-post p {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.read-more {
+    display: inline-block;
+    text-decoration: none;
+    background: #4CAF50;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+}
+
+.read-more:hover {
+    background: #f5d142;
+    color: #1e272e;
+}
+
+/* Footer Styling */
 footer {
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     background: #333;
     color: #fff;
     margin-top: 2rem;
 }
 
-footer p {
-    margin: 0;
-    font-size: 1rem;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog-post {
+        flex: 1 1 calc(100% - 2rem);
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    header img {
+        max-width: 100px;
+    }
 }
