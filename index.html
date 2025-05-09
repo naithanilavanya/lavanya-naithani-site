@@ -12,14 +12,147 @@
     <meta property="og:url" content="https://github.com/naithanilavanya/lavanya-naithani-site">
     <title>Lavanya Naithani</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            color: #333;
+        }
+
+        header {
+            background: #1e272e;
+            color: #f5d142; /* Gold accent for a premium feel */
+            text-align: center;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            padding: 0.75rem 0;
+        }
+
+        nav a {
+            color: #f5d142;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 3rem;
+            margin: 1rem auto;
+            border-radius: 10px;
+            max-width: 1000px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #1e272e;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .testimonials-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .testimonial {
+            flex: 1 1 calc(33.333% - 2rem);
+            background: linear-gradient(to bottom, #4c6ef5, #2c3e50);
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .testimonial:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial h4 {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #f5d142;
+        }
+
+        .gallery-container iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            background: #4CAF50;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            background: #f5d142;
+            color: #1e272e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: #fff;
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <img src="https://raw.githubusercontent.com/naithanilavanya/lavanya-naithani-site/main/logo_ln_tagline.png" alt="Lavanya Naithani Logo" style="max-width: 150px; height: auto;">
+        <img src="https://raw.githubusercontent.com/naithanilavanya/lavanya-naithani-site/main/logo_ln_tagline.png" alt="Lavanya Naithani Logo">
         <h1>Lavanya Naithani</h1>
         <p>Redefining Quality in the Textile Industry Since 2013</p>
     </header>
 
+    <!-- Navigation -->
     <nav>
         <a href="#about">About Me</a>
         <a href="#testimonials">Testimonials</a>
@@ -27,12 +160,55 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Add your other sections here -->
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me — Lavanya Naithani</h2>
+        <p><strong>Precision in Every Stitch | Vision Beyond Fashion</strong></p>
+        <p>In the heart of India’s vibrant textile capital, a legacy of detail, discipline, and design thrives under the leadership of Lavanya Naithani. A seasoned entrepreneur and garment manufacturer since 2013...</p>
+        <!-- Add more personalized content here -->
+    </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p>"Lavanya’s precision is unmatched. Every garment feels like a custom piece."</p>
+                <h4>— Priya Verma, Fashion Buyer</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Working with Lavanya was a masterclass in quality control and design clarity."</p>
+                <h4>— Rahul Singh, Export Manager</h4>
+            </div>
+            <!-- Add more testimonials here -->
+        </div>
+    </section>
+
+    <!-- Instagram Gallery Section -->
+    <section id="gallery">
+        <h2>Instagram Gallery</h2>
+        <div class="gallery-container">
+            <iframe loading="lazy" src="https://snapwidget.com/embed/1043105"></iframe>
+        </div>
+        <p>If the Instagram gallery does not load, visit my <a href="https://www.instagram.com/lavanya.naithani" target="_blank" rel="noopener noreferrer">Instagram profile</a>.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out via email or follow me on social media:</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/lavanya.naithani" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://youtube.com/@lava4gaming" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://github.com/naithanilavanya" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:lavanyanaithani@ethenicattire.in">Email</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Lavanya Naithani. All rights reserved.</p>
     </footer>
-    
-    <script src="script.js"></script>
 </body>
 </html>
+
