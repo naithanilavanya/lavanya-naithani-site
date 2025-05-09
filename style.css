@@ -1,18 +1,26 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
     color: #333;
 }
 
+/* Header */
 header {
-    background: #4CAF50;
-    color: #fff;
+    background: #1e272e;
+    color: #f5d142; /* Gold accent */
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
 }
 
 header h1 {
@@ -31,14 +39,16 @@ nav {
     display: flex;
     justify-content: center;
     background: #333;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
 }
 
 nav a {
-    color: #fff;
+    color: #f5d142;
     text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1rem;
+    margin: 0 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 nav a:hover {
@@ -47,17 +57,18 @@ nav a:hover {
 
 /* About Section */
 section#about {
-    padding: 2rem;
+    padding: 3rem;
     background: #fff;
     margin: 1rem auto;
-    border-radius: 5px;
-    max-width: 800px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 section#about h2 {
-    font-size: 2rem;
-    color: #4CAF50;
+    font-size: 2.5rem;
+    color: #1e272e;
+    text-align: center;
 }
 
 section#about p {
@@ -67,17 +78,17 @@ section#about p {
 
 /* Instagram Gallery Section */
 section#gallery {
-    padding: 2rem;
+    padding: 3rem;
     background: #f9f9f9;
     margin: 1rem auto;
-    border-radius: 5px;
-    max-width: 800px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 section#gallery h2 {
-    font-size: 2rem;
-    color: #4CAF50;
+    font-size: 2.5rem;
+    color: #1e272e;
     text-align: center;
 }
 
@@ -90,24 +101,25 @@ section#gallery h2 {
 
 .gallery-container iframe {
     width: 100%;
-    height: 500px;
+    height: 600px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 /* Contact Section */
 section#contact {
-    padding: 2rem;
+    padding: 3rem;
     background: #fff;
     margin: 1rem auto;
-    border-radius: 5px;
-    max-width: 800px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 section#contact h2 {
-    font-size: 2rem;
-    color: #4CAF50;
+    font-size: 2.5rem;
+    color: #1e272e;
+    text-align: center;
 }
 
 section#contact p {
@@ -120,25 +132,63 @@ section#contact p {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    margin-top: 2rem;
 }
 
 .social-icons a {
     color: #fff;
     background: #4CAF50;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 5px;
-    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
 }
 
 .social-icons a:hover {
-    background: #45a049;
+    background: #f5d142;
+    color: #1e272e;
+}
+
+/* Testimonials Section */
+.testimonials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: #1e272e;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial {
+    flex: 1 1 calc(33.333% - 2rem);
+    background: linear-gradient(to bottom, #4c6ef5, #2c3e50);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.testimonial:hover {
+    transform: scale(1.05);
+}
+
+.testimonial h4 {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #f5d142;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     background: #333;
     color: #fff;
     margin-top: 2rem;
@@ -146,37 +196,5 @@ footer {
 
 footer p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
-
-/* === Testimonials Section Styling === */
-.testimonials-container {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  padding: 40px 20px;
-  color: #fff;
-  font-family: 'Helvetica Neue', sans-serif;
-}
-
-.testimonial {
-  display: none;
-  text-align: center;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.testimonial.active {
-  display: block;
-  opacity: 1;
-}
-
-.testimonial h4 {
-  margin-top: 10px;
-  font-weight: normal;
-  font-style: italic;
-  color: #ccc;
-}
-
