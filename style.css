@@ -1,10 +1,11 @@
-/* Base Styling */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
@@ -63,6 +64,10 @@ nav a:hover {
     color: #fff;
 }
 
+nav a.active {
+    border-bottom: 2px solid #f5d142; /* Highlight active link */
+}
+
 /* Section Styling */
 section {
     padding: 3rem;
@@ -85,16 +90,21 @@ p {
     line-height: 1.8;
 }
 
+/* About Me Section Styling */
+#about p {
+    margin-bottom: 1.5rem;
+}
+
 /* Testimonials Section */
 .testimonials-container {
-    position: relative;
-    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
     margin: 0 auto;
-    overflow: hidden;
 }
 
 .testimonial {
-    display: none;
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -103,12 +113,11 @@ p {
     background: linear-gradient(to bottom, #4c6ef5, #2c3e50);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: opacity 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
-.testimonial.active {
-    display: block;
-    opacity: 1;
+.testimonial:hover {
+    transform: scale(1.03);
 }
 
 .testimonial h4 {
@@ -117,7 +126,7 @@ p {
     color: #f5d142;
 }
 
-/* Blog Section */
+/* Blog Section Styling */
 .blog-container {
     display: flex;
     flex-wrap: wrap;
@@ -143,6 +152,7 @@ p {
 .blog-post img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 .blog-post-content {
@@ -178,6 +188,25 @@ p {
     color: #1e272e;
 }
 
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    font-size: 2rem;
+    color: #1e272e;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #f5d142; /* Gold hover effect */
+    transform: scale(1.2);
+}
+
 /* Footer Styling */
 footer {
     text-align: center;
@@ -185,6 +214,32 @@ footer {
     background: #333;
     color: #fff;
     margin-top: 2rem;
+}
+
+/* Scroll-to-Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: none; /* Hidden initially */
+}
+
+.scroll-to-top:hover {
+    background: #f5d142;
+    transform: scale(1.1);
 }
 
 /* Responsive Design */
