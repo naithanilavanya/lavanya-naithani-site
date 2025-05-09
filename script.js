@@ -1,61 +1,103 @@
-// Smooth scrolling for internal navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href').substring(1);
-    const targetSection = document.getElementById(targetId);
-    if (targetSection) {
-      targetSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+// Wait for the DOM to load before executing scripts
+document.addEventListener("DOMContentLoaded", () => {
+    /* Smooth Scrolling for Navigation Links */
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+    });
+
+    /* Rotating Testimonials */
+    const testimonials = document.querySelectorAll(".testimonial");
+    let currentTestimonialIndex = 0;
+
+    function rotateTestimonials() {
+        testimonials.forEach((testimonial, index) => {
+            testimonial.classList.remove("active");
+        });
+        testimonials[currentTestimonialIndex].classList.add("active");
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
     }
-  });
-});
 
-// Highlight the active section in the navigation as you scroll
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('nav a');
-
-window.addEventListener('scroll', () => {
-  let currentSection = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100; // Adjust offset for smoother highlighting
-    const sectionHeight = section.offsetHeight;
-    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-      currentSection = section.getAttribute('id');
+    // Start rotating testimonials every 5 seconds
+    if (testimonials.length > 0) {
+        testimonials[currentTestimonialIndex].classList.add("active");
+        setInterval(rotateTestimonials, 5000);
     }
-  });
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').substring(1) === currentSection) {
-      link.classList.add('active');
-    }
-  });
-});
+    /* Scroll-to-Top Button */
+    const scrollToTopButton = document.createElement("button");
+    scrollToTopButton.innerText = "↑";
+    scrollToTopButton.className = "scroll-to-top";
+    scrollToTopButton.setAttribute("aria-label", "Scroll to top");
+    document.body.appendChild(scrollToTopButton);
 
-// Rotate testimonials every 5 seconds
-const testimonials = document.querySelectorAll('.testimonial');
-let currentIndex = 0;
+    scrollToTopButton.style.display = "none"; // Hide initially
 
-function rotateTestimonials() {
-  testimonials[currentIndex].classList.remove('active');
-  currentIndex = (currentIndex + 1) % testimonials.length;
-  testimonials[currentIndex].classList.add('active');
-}
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            scrollToTopButton.style.display = "block";
+        } else {
+            scrollToTopButton.style.display = "none";
+        }
+    });
 
-if (testimonials.length > 0) {
-  setInterval(rotateTestimonials, 5000); // Rotate every 5 seconds
-}
+    scrollToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
-// Hover effect for testimonials
-testimonials.forEach(testimonial => {
-  testimonial.addEventListener('mouseenter', () => {
-    testimonial.style.transform = 'scale(1.05)'; // Slight zoom-in effect
-    testimonial.style.transition = 'transform 0.3s ease-in-out';
-  });
-  testimonial.addEventListener('mouseleave', () => {
-    testimonial.style.transform = 'scale(1)'; // Reset zoom
-  });
+    /* Dynamic Active Navigation */
+    const sections = document.querySelectorAll("section");
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.6 // Trigger when 60% of the section is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const navLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => link.classList.remove("active"));
+                if (navLink) {
+                    navLink.classList.add("active");
+                }
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    /* Lazy Loading for Blog Images */
+    const blogImages = document.querySelectorAll(".blog-post img");
+    const lazyLoadOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1 // Start loading when 10% of the image is visible
+    };
+
+    const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.getAttribute("data-src");
+                if (src) {
+                    img.setAttribute("src", src);
+                    img.removeAttribute("data-src");
+                }
+                observer.unobserve(img);
+            }
+        });
+    }, lazyLoadOptions);
+
+    blogImages.forEach(img => lazyLoadObserver.observe(img));
 });
