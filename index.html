@@ -284,9 +284,24 @@
             <a href="mailto:lavanyanaithani@ethenicattire.in">Email</a>
         </div>
     </section>
+<script>
+let testimonials = document.querySelectorAll(".testimonial");
+let currentIndex = 0;
 
+function rotateTestimonials() {
+  testimonials[currentIndex].classList.remove("active");
+  currentIndex = (currentIndex + 1) % testimonials.length;
+  testimonials[currentIndex].classList.add("active");
+}
+
+setInterval(rotateTestimonials, 5000); // Change every 5 seconds
+</script>
+
+
+        
     <footer>
         <p>&copy; 2025 Lavanya Naithani. All rights reserved.</p>
     </footer>
+        
 </body>
 </html>
