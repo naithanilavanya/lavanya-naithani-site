@@ -1,5 +1,3 @@
-// script.js
-
 // Smooth scrolling for internal navigation links
 document.querySelectorAll('nav a').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -7,9 +5,9 @@ document.querySelectorAll('nav a').forEach(anchor => {
     const targetId = this.getAttribute('href').substring(1);
     const targetSection = document.getElementById(targetId);
     if (targetSection) {
-      window.scrollTo({
-        top: targetSection.offsetTop,
-        behavior: 'smooth'
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
     }
   });
@@ -22,8 +20,9 @@ const navLinks = document.querySelectorAll('nav a');
 window.addEventListener('scroll', () => {
   let currentSection = '';
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 50;
-    if (pageYOffset >= sectionTop) {
+    const sectionTop = section.offsetTop - 100; // Adjust offset for smoother highlighting
+    const sectionHeight = section.offsetHeight;
+    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
       currentSection = section.getAttribute('id');
     }
   });
@@ -36,14 +35,27 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Add hover effect for testimonial colors dynamically (if needed)
-// Assuming you have testimonials with a class 'testimonial'
+// Rotate testimonials every 5 seconds
 const testimonials = document.querySelectorAll('.testimonial');
+let currentIndex = 0;
+
+function rotateTestimonials() {
+  testimonials[currentIndex].classList.remove('active');
+  currentIndex = (currentIndex + 1) % testimonials.length;
+  testimonials[currentIndex].classList.add('active');
+}
+
+if (testimonials.length > 0) {
+  setInterval(rotateTestimonials, 5000); // Rotate every 5 seconds
+}
+
+// Hover effect for testimonials
 testimonials.forEach(testimonial => {
   testimonial.addEventListener('mouseenter', () => {
-    testimonial.style.color = '#f5d142'; // Gold-like color
+    testimonial.style.transform = 'scale(1.05)'; // Slight zoom-in effect
+    testimonial.style.transition = 'transform 0.3s ease-in-out';
   });
   testimonial.addEventListener('mouseleave', () => {
-    testimonial.style.color = ''; // Reset color
+    testimonial.style.transform = 'scale(1)'; // Reset zoom
   });
 });
