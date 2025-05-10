@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+    
+    window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.querySelector(".progress-bar").style.width = `${progress}%`;
+});
 
     /* Rotating Testimonials */
     const testimonials = document.querySelectorAll(".testimonial");
