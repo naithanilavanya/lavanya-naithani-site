@@ -68,6 +68,18 @@ nav a.active {
     border-bottom: 2px solid #f5d142; /* Highlight active link */
 }
 
+/* Video Background */
+.hero-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.8;
+}
+
 /* Section Styling */
 section {
     padding: 3rem;
@@ -123,7 +135,10 @@ p {
 .testimonial h4 {
     margin-top: 1rem;
     font-style: italic;
-    color: #.arrow {
+    color: #f5d142;
+}
+
+.arrow {
     background: transparent;
     border: none;
     font-size: 2rem;
@@ -142,7 +157,6 @@ p {
 .arrow.right {
     right: 1rem;
 }
-
 
 /* Blog Section Styling */
 .blog-container {
@@ -260,6 +274,7 @@ footer {
     transform: scale(1.1);
 }
 
+/* Progress Bar */
 .progress-bar {
     position: fixed;
     top: 0;
