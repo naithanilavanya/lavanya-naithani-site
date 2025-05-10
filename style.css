@@ -123,8 +123,26 @@ p {
 .testimonial h4 {
     margin-top: 1rem;
     font-style: italic;
+    color: #.arrow {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
     color: #f5d142;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
 }
+
+.arrow.left {
+    left: 1rem;
+}
+
+.arrow.right {
+    right: 1rem;
+}
+
 
 /* Blog Section Styling */
 .blog-container {
